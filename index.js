@@ -1,5 +1,27 @@
-// The file containing the logic for the course of the game, which depends on `Word.js` and:
+var Letter = require("./letter.js");
+var inquirer = require("inquirer");
 
-//   * Randomly selects a word and uses the `Word` constructor to store it
+var words = ["red", "blue", "green", "yellow"];
 
-//   * Prompts the user for each guess and keeps track of the user's remaining guesses
+var wordsSelected = words[Math.floor(Math.random() * words.length)];
+var wordsToLetter = wordsSelected.split("")
+// console.log(wordsSelected);
+var wordToGuess = new Letter(wordsToLetter);
+wordToGuess.displayLetter();
+
+function questions() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: 'question',
+            message: "Guess a letter"
+        }
+    ]).then(function(answer) {
+        console.log(answer)
+        questions();
+    })
+
+}
+questions();
+
+

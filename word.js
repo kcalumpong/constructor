@@ -1,5 +1,13 @@
-let Letter = require("./letter.js");
+var Letter = require("./letter.js");
 
-let Word = function(word) {
-    
+var Word = function(word) {
+
+    this.lettersArr = [];
+
+    for (var i=0; i < word.length; i++) {
+        if (word.charAt(i)) === " "){
+            
+        }
+    }
+
 }
